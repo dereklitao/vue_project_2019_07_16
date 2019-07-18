@@ -1,39 +1,35 @@
 <template>
-  <v-layout row>
-    <v-flex xs12 sm6 offset-sm3>
-      <v-card>
-        <v-toolbar color="teal" dark>
-          <v-toolbar-side-icon></v-toolbar-side-icon>
+  <v-layout align-start justify-center>
+    <v-card>
+      <v-toolbar color="teal" dark min-width="200px" height="50px">
+        <v-toolbar-side-icon></v-toolbar-side-icon>
+        <v-toolbar-title>Engine</v-toolbar-title>
+        <v-spacer></v-spacer>
+        <v-btn icon>
+          <v-icon>search</v-icon>
+        </v-btn>
+      </v-toolbar>
 
-          <v-toolbar-title>Engine</v-toolbar-title>
+      <v-list two-line>
+        <template v-for="(item, index) in items">
+          <v-subheader v-if="item.header" :key="item.header" height="10px">{{ item.header }}</v-subheader>
+          <v-divider v-else-if="item.divider" :key="index" :inset="item.inset"></v-divider>
+          <v-list-tile v-else :key="item.title" avatar @click>
+            <v-list-tile-action>
+              <v-icon large mr-2>wb_sunny</v-icon>
+            </v-list-tile-action>
 
-          <v-spacer></v-spacer>
+            <v-list-tile-content>
+              <v-list-tile-title v-text="'HELLO'"></v-list-tile-title>
+            </v-list-tile-content>
 
-          <v-btn icon>
-            <v-icon>search</v-icon>
-          </v-btn>
-        </v-toolbar>
-
-        <v-list two-line>
-          <template v-for="(item, index) in items">
-            <v-subheader v-if="item.header" :key="item.header">{{ item.header }}</v-subheader>
-
-            <v-divider v-else-if="item.divider" :key="index" :inset="item.inset"></v-divider>
-
-            <v-list-tile v-else :key="item.title" avatar @click>
-              <v-list-tile-avatar>
-                <img :src="item.avatar" />
-              </v-list-tile-avatar>
-
-              <v-list-tile-content>
-                <v-list-tile-title v-html="item.title"></v-list-tile-title>
-                <v-list-tile-sub-title v-html="item.subtitle"></v-list-tile-sub-title>
-              </v-list-tile-content>
-            </v-list-tile>
-          </template>
-        </v-list>
-      </v-card>
-    </v-flex>
+            <v-btn round color="teal" dark>
+              <v-icon>wb_sunny</v-icon>
+            </v-btn>
+          </v-list-tile>
+        </template>
+      </v-list>
+    </v-card>
   </v-layout>
 </template>
 

@@ -20,14 +20,8 @@
       <v-toolbar-title>Application</v-toolbar-title>
     </v-toolbar>
     <v-content>
-      <v-container fluid fill-height>
-        <v-layout justify-center align-center>
-          <v-flex text-xs-center>
-            <lightgroup></lightgroup>
-            <lightgroup></lightgroup>
-            <lightgroup></lightgroup>
-          </v-flex>
-        </v-layout>
+      <v-container fill-height align-start justify-start>
+        <lightgroup></lightgroup>
       </v-container>
     </v-content>
     <v-footer color="teal" app justify-center>
