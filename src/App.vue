@@ -1,38 +1,65 @@
+    
 <template>
-  <v-app>
-    <v-toolbar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        flat
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-      </v-btn>
-    </v-toolbar>
+  <v-app id="inspire">
+    <v-navigation-drawer class="teal lighten-3" v-model="drawer" fixed app width="230px">
+      <v-layout row wrap>
+        <v-toolbar color="teal" dark>
+          <v-icon x-large>money</v-icon>
+        </v-toolbar>
+      </v-layout>
 
+      <v-list dark two-line>
+        <navitem navtitle="Home" icon="home"></navitem>
+        <navitem navtitle="About" icon="info"></navitem>
+        <navitem navtitle="List" icon="menu"></navitem>
+        <navitem navtitle="Analyse" icon="fingerprint"></navitem>
+      </v-list>
+    </v-navigation-drawer>
+    <v-toolbar color="teal" dark fixed app>
+      <v-toolbar-side-icon @click.stop="drawer = !drawer"></v-toolbar-side-icon>
+      <v-toolbar-title>Application</v-toolbar-title>
+    </v-toolbar>
     <v-content>
-      <HelloWorld/>
+      <v-container fluid fill-height>
+        <v-layout justify-center align-center>
+          <v-flex text-xs-center>
+            <lightgroup></lightgroup>
+            <lightgroup></lightgroup>
+            <lightgroup></lightgroup>
+          </v-flex>
+        </v-layout>
+      </v-container>
     </v-content>
+    <v-footer color="teal" app justify-center>
+      <v-layout row wrap justify-space-around>
+        <span class="white--text">CSPI Copyright &copy; 2019</span>
+      </v-layout>
+    </v-footer>
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld'
-
+import navitem from "./components/left/nav-item";
+import lightgroup from "./components/right/light-group";
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  data: () => ({
+    drawer: null
+  }),
+  props: {
+    source: String
   },
-  data () {
-    return {
-      //
+  methods: {
+    buttonclick() {
+      console.log("buttong clicked");
     }
+  },
+  components: {
+    navitem,
+    lightgroup
   }
-}
+};
 </script>
+
+<style>
+</style>
+
